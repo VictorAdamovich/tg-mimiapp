@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import WebApp from '@twa-dev/sdk'
+
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +21,14 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          
         </a>
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+          <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
+            Show Alert
+        </button>
       </header>
     </div>
   );
